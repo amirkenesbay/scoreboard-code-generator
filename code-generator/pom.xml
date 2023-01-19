@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.amirkenesbay</groupId>
-        <artifactId>tablo-code-generator</artifactId>
+        <artifactId>scoreboard-code-generator</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
