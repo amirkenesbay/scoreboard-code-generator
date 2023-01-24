@@ -3,6 +3,8 @@ package com.amirkenesbay.controller;
 import com.amirkenesbay.entity.Scoreboard;
 import com.amirkenesbay.service.ScoreboardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -14,13 +16,13 @@ public class ScoreboardController {
     private final ScoreboardService scoreboardService;
 
     @PostMapping
-    public Scoreboard createScoreboardCode() {
-        return scoreboardService.generateNextCode();
+    public ResponseEntity<Scoreboard> createScoreboardCode() {
+        return new ResponseEntity<>(scoreboardService.generateNextCode(), HttpStatus.OK);
     }
 
     @GetMapping
-    public Scoreboard getLastScoreboardCode() {
-        return scoreboardService.getLastGeneratedCode();
+    public ResponseEntity<Scoreboard> getLastScoreboardCode() {
+        return new ResponseEntity<>(scoreboardService.getLastGeneratedCode(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = GET)
